@@ -1,0 +1,80 @@
+<div class="container pt-4">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="card text-center text-white bg-dark">
+        <div class="card-body">
+          <h3 class="mb-3">
+            {{tittle}} Empleado
+            <div *ngIf="loading" class="spinner-grow float-right" role="status">
+              <span class="visually-hidden"></span>
+            </div>
+          </h3>
+          <span
+            *ngIf="submitted && createEmploye.invalid"
+            class="badge badge-danger mb-4"
+            >TODOS LOS CAMPOS SON OBLIGATORIOS</span
+          >
+          <form [formGroup]="createEmploye" (ngSubmit)="addEditEmployee()">
+            <div class="row mb-4">
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control form-control-lg bg-dark text-light border-secondary"
+                  placeholder="Nombre"
+                  formControlName="nombre"
+                />
+              </div>
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control form-control-lg bg-dark text-light border-secondary"
+                  placeholder="Apellido"
+                  formControlName="apellido"
+                />
+              </div>
+            </div>
+            <input
+              type="text"
+              class="mb-3 form-control form-control-lg bg-dark text-light border-secondary"
+              placeholder="Documento"
+              formControlName="documento"
+            />
+            <div class="input-group mt-4">
+              <div class="input-group-prepend">
+                <span
+                  class="input-group-text bg-dark text-white border-secondary"
+                  >$</span
+                >
+              </div>
+              <input
+                type="number"
+                class="form-control form-control-lg bg-dark border-secondary text-white"
+                aria-label="Amount (to the nearest dollar)"
+                placeholder="Salario"
+                formControlName="salario"
+              />
+              <div class="input-group-append">
+                <span
+                  class="input-group-text bg-dark text-light border-secondary"
+                  >.00</span
+                >
+              </div>
+            </div>
+            <div class="mt-4">
+              <button type="submit" class="btn btn-primary btn-lg mr-4">
+                {{tittle}}
+              </button>
+              <button
+                type="button"
+                class="btn btn-light btn-lg"
+                routerLink="/viewEmployees"
+              >
+                Volver
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

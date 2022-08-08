@@ -1,0 +1,43 @@
+<div class="container mt-4">
+  <div class="card text-white bg-dark">
+    <div class="card-body">
+      <span class="h3">Lista de empleados</span>
+      <button class="btn btn-primary btn-lg float-right" routerLink="/employee">
+        Agregar
+      </button>
+      <div *ngIf="employees.length == 0">
+        <hr class="bg-secondary">
+        <h4  >No existen registros que mostrar</h4>
+      </div>
+      <table *ngIf="employees.length>0" class="table table-hover table-dark mt-5">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Salario</th>
+            <th scope="col">Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let empleado of employees">
+            <td>{{ empleado.nombre }}</td>
+            <td>{{ empleado.apellido }}</td>
+            <td>{{ empleado.salario | currency }}</td>
+            <td>
+              <img
+                [routerLink]="['/employee/',empleado.id]"
+                src="../../../assets/user-pen-solid.svg"
+                class="blue mr-3 btnImg"
+              />
+              <img
+                (click)="deleteEmployee(empleado.id)"
+                src="../../../assets/trash-can-solid.svg"
+                class="red ml-2 btnImg"
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,28 @@
+@import '~ngx-toastr/toastr';
 /* You can add global styles to this file, and also import other style files */
+body {
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url("./assets/fondo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+img {
+    width: 2.3vw;
+    height: fit-content;
+}
+
+.btnImg
+{
+    cursor: pointer;
+}
+
+.red {
+    filter: invert(13%) sepia(94%) saturate(7466%) hue-rotate(0deg) brightness(94%) contrast(115%);
+}
+
+
+.blue {
+    filter: invert(52%) sepia(86%) saturate(3156%) hue-rotate(161deg) brightness(95%) contrast(101%);
+}
